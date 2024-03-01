@@ -19,4 +19,5 @@ const byEmail = async ({ email }) => {
   const response = await pool.query(query);
   return response.rows[0];
 };
+
 export { createUser, byEmail };
