@@ -10,14 +10,11 @@ const Login = async (req, res) => {
   } else {
     const match = await bcrypt.compare(password, user.password);
     if (match) {
-      const token = jwt.sign(
-        { email: user.email },
-        process.env.SECRET,
-        {
-          expiresIn: "1h",
-        }
-      );
-      res.status(200).json({ message: "User logged", token });
+      const token = jwt.sign({ email: user.email }, process.env.SECRET);
+      const tokenIsValid = jwt.verify(token, process.env.SECRET);
+      if (tokenIsValid) {
+        res.status(200).json({ message: "Token is valid", token });
+      }
     } else {
       res.status(400).json({ message: "Invalid password" });
     }
