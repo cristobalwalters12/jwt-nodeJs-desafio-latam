@@ -3,6 +3,6 @@ import createUserjwt from "../../src/controllers/createUserController.js";
 
 const router = express.Router();
 
-router.post("/createUser", createUserjwt);
+router.post("/usuarios", createUserjwt);
 
 export default router;

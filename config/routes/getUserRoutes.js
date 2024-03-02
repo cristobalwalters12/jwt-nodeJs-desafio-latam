@@ -3,5 +3,5 @@ import getUserwhereTokenIsValid from "../../src/controllers/getUserController.js
 
 const router = Express.Router();
 
-router.get("/getUsuario", getUserwhereTokenIsValid);
+router.get("/usuarios", getUserwhereTokenIsValid);
 export default router;
